@@ -17,31 +17,61 @@
 from random import randint
 health = 100
 
+def is_number(s):
+	try:
+		float(s)
+		return True
+	except ValueError:
+		return False
+def is_integer(s):
+	try: 
+		int(s)
+		return True
+	except ValueError:
+		return False
+
+def input_handler(input):
+	# if input is a number
+	if is_integer(input):
+		# cast it to an int and return
+		return int(input);
+	else:
+		# return string
+		return input
+
 def encounter1(enemies, enhealthstart, health):
+	invalidInputString = '\nWhat? That\'s not a valid input. I guess you want to skip your turn, sucka!!\n The enemy takes no damage!'
 	enhealth = enhealthstart
 	while health > 0 and enemies > 0:
 		while enhealth > 0 and health > 0:
-			print '\n\nRoll the dice to attack! \nYour health is at ' + `health` + ' and the enemy in front of you has ' + `enhealth` + ' health.'
-			hit = input('>>')
-			if hit == 1:
-				print '\nYour Canadian instinct takes over and you stand around mumbling "sorry" and "eh" a lot.. the enemy takes no damage.'
-			elif hit <= 6:
-				print '\nYou trot around your enemy, giving them a few light kicks. Their health is now at ' + `(enhealth-hit)` + '.'
-				enhealth = enhealth - hit
-			elif hit <=12:
-				print '\nMaple-syrup spray! You blast a stream of hot syrup at your enemy.\nTheir health is now ' + `(enhealth - hit)` + '.'
-				enhealth = enhealth - hit
-			elif hit <=19:
-				print '\nYou summon a tempest of maple-leaves, which encircles your enemy, giving them thousands of paper-cuts! \nYour enemy\'s health is now at ' + `(enhealth - hit)` + '.'
-				enhealth = enhealth - hit
-			elif hit == 20:
-				print '\nPATRIOTIC OVERLOAD. You transform into a mighty moose temporarily, trampling your enemy into the ground, utterly destroying them!!'
-				enhealth = 0
-			elif hit == 21:
-				print '\nYou take a swig of Canady Dry ginger-ale, which restores your health from ' + `health` + ' to ' + `(health+15)` + '.'
-				health = health + 15
-			else:
-				print '\nWhat? That\'s not a valid input. I guess you want to skip your turn, sucka!\nThe enemy takes no damage!'
+			print '\n\nYour health is at ' + `health` + ' and the enemy in front of you has ' + `enhealth` + ' health.\nRoll the dice and enter the value to attack. \ntype "Random" to generate a roll, or "Heal" to heal.'
+			hit = input_handler(raw_input('>>'))
+			if type(hit) is str:
+
+				if str(hit).lower() == 'random':
+					hit = randint(1,20)
+				elif str(hit).lower() == 'heal':
+					print '\nYou take a swig of Canada Dry ginger-ale, which restores your health from ' + `health` + ' to ' + `(health+15)` + '.'
+					health = health + 15
+				else:
+					print invalidInputString
+			if type(hit) is int:
+				if hit == 1:
+					print '\nYour Canadian instinct takes over and you stand around mumbling "sorry" and "eh" a lot.. the enemy takes no damage.'
+				elif hit <= 6:
+					print '\nYou trot around your enemy, giving them a few light kicks. Their health is now at ' + `(enhealth-int(hit))` + '.'
+					enhealth = enhealth - int(hit)
+				elif hit <=12:
+					print '\nMaple-syrup spray! You blast a stream of hot syrup at your enemy.\nTheir health is now ' + `(enhealth - int(hit))` + '.'
+					enhealth = enhealth - int(hit)
+				elif hit <=19:
+					print '\nYou summon a tempest of maple-leaves, which encircles your enemy, giving them thousands of paper-cuts! \nYour enemy\'s health is now at ' + `(enhealth - int(hit))` + '.'
+					enhealth = enhealth - int(hit)
+				elif hit == 20:
+					print '\nPATRIOTIC OVERLOAD. You transform into a mighty moose temporarily, trampling your enemy into the ground, utterly destroying them!!'
+					enhealth = 0
+				else:
+					print invalidInputString
 	
 		if enhealth > 0:		
 			enhit = randint(1,20)
