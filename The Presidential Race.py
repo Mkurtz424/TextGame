@@ -4,10 +4,8 @@
 # this link: http://n00bc0d3r.blogspot.com/2013/05/give-me-suggestions.html
 # 
 # This is a simple text-based game that uses a 20-sided die.
-# If you do not have a 20-sided die, visit the website below to emulate one:
-# http://www.roll-dice-online.com/
-# In the first box chose 20, and in the following boxes chose '1', and click
-# on 'Roll dice' to roll each time. Then, enter that number into the game.
+# If you have a 20-sided die, roll to hit.
+# If you do not have a 20-sided die, you can randomly generate a roll in the game.
 # 
 # PLEASE submit feedback / compliments / insults / marriage proposals to
 # the comment of the above-mentioned blog (line 4).
