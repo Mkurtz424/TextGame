@@ -71,22 +71,22 @@ def encounter1(enemies, enhealthstart, health):
 				else:
 					print invalidInputString
 	
-		if enhealth > 0:		
-			enhit = randint(1,20)
-			if enhit == 1:
-				print 'Your opponent stumbles on their roller-blades, throughly embarased.\nYou take no damage.'
-			elif enhit <= 6:
-				print 'Your enemy skates around you in circles, slapping you with "Vote Drag-Shark" stickers.\nYou take ' + `enhit` + ' damage and your health is now ' + `(health-enhit)` + '.\n'
-				health = health - enhit
-			elif enhit <=12:
-				print 'The enemy resorts to violence, skating over your freshly-shined hooves! \nYou take ' + `enhit` + ' damage, and your health is now ' + `(health - enhit)` + '.\n'
-				health = health - enhit
-			elif enhit <=19:
-				print 'The enemy throws low-quality cupcake ingredients at you.. how it burns your skin!!!\nOuch.. you were hit for ' + `enhit` + ' points. You now have ' + `(health - enhit)` + ' health.\n'
-				health = health - enhit
-			elif enhit == 20:
-				print 'RIGHT IN THE FAMILY JEWELS! Your enemy slap-shots a hockey puck into your... ahhem...\nYou were hit for ' + `enhit` + ' points.You now have ' + `(health - enhit)` + ' health.\n'
-				health = health - 30
+			if enhealth > 0:		
+				enhit = randint(1,20)
+				if enhit == 1:
+					print 'Your opponent stumbles on their roller-blades, throughly embarased.\nYou take no damage.'
+				elif enhit <= 6:
+					print 'Your enemy skates around you in circles, slapping you with "Vote Drag-Shark" stickers.\nYou take ' + `enhit` + ' damage and your health is now ' + `(health-enhit)` + '.\n'
+					health = health - enhit
+				elif enhit <=12:
+					print 'The enemy resorts to violence, skating over your freshly-shined hooves! \nYou take ' + `enhit` + ' damage, and your health is now ' + `(health - enhit)` + '.\n'
+					health = health - enhit
+				elif enhit <=19:
+					print 'The enemy throws low-quality cupcake ingredients at you.. how it burns your skin!!!\nOuch.. you were hit for ' + `enhit` + ' points. You now have ' + `(health - enhit)` + ' health.\n'
+					health = health - enhit
+				elif enhit == 20:
+					print 'RIGHT IN THE FAMILY JEWELS! Your enemy slap-shots a hockey puck into your... ahhem...\nYou were hit for ' + `enhit` + ' points.You now have ' + `(health - enhit)` + ' health.\n'
+					health = health - 30
 	
 		if enhealth <= 0:
 			print 'The enemy falls to the ground, overwhelmed by your patriotism.\n'
